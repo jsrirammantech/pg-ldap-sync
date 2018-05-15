@@ -221,7 +221,8 @@ class Application
   end
 
   def drop_pg_role(role)
-    pg_exec_modify "DROP ROLE \"#{role.name}\""
+   # pg_exec_modify "DROP ROLE \"#{role.name}\
+    pg_exec_modify "alter ROLE \"#{role.name}\" with nologin"
   end
 
   def sync_roles_to_pg(roles, for_state)
